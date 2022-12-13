@@ -1,9 +1,9 @@
-const kenx = require('../config/database');
+const kenx = require("../config/database");
 
 const getUsers = () => {
-  return kenx('user')
-}
+	return kenx("user");
+};
 
 module.exports = {
-  getUsers
-}
+	getUsers,
+};
