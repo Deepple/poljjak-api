@@ -5,6 +5,12 @@ const getUsers = async (req, res) => {
 	res.send(users);
 };
 
+const createUser = async (req, res) => {
+	const newUserId = await userService.createUser(req.body);
+	res.send(newUserId);
+};
+
 module.exports = {
 	getUsers,
+	createUser,
 };
