@@ -1,9 +1,4 @@
-const path =
-	process.env.NODE_ENV === "development"
-		? "/../.env.development"
-		: "/../.env.production";
-require("dotenv").config({path: __dirname + `${path}`});
-const port = process.env.PORT || 3000;
-const app = require("./app.js");
+import {app} from "./config/express.js";
+import {env, port} from "./config/vars.js";
 
-app.listen(port, () => console.log(`API running on port ${port}`));
+app.listen(port, () => console.log(`API PORT: ${port} | NODE_ENV: ${env}`));
