@@ -1,11 +1,13 @@
-import path from "path";
 import dotenv from "dotenv";
-import {__dirname} from "../api/utils/dirname.js";
+import path, {dirname} from "path";
+import {fileURLToPath} from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const envPath =
 	process.env.NODE_ENV === "development"
-		? path.join(__dirname, "/../../../.env.development")
-		: path.join(__dirname, "/../../../.env.production");
+		? path.join(__dirname, "/../../.env.development")
+		: path.join(__dirname, "/../../.env.production");
 
 dotenv.config({path: envPath});
 

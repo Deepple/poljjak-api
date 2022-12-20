@@ -1,13 +1,13 @@
 import {database} from "../../config/database.js";
 
 const getUsers = () => {
-	return database("account");
+	return database("user");
 };
 
-const createUser = ({account_name, password}) => {
-	return database("account").returning(["id", "account_name"]).insert({
-		account_name: account_name,
-		password: password,
+const createUser = ({user_name, password}) => {
+	return database("user").returning(["id", "user_name"]).insert({
+		user_name,
+		password,
 	});
 };
 
