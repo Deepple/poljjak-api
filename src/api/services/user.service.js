@@ -4,10 +4,10 @@ const getUsers = () => {
 	return database("user");
 };
 
-const createUser = ({user_name, password}) => {
-	return database("user").returning(["id", "user_name"]).insert({
-		user_name,
-		password,
+const createUser = ({email, password}) => {
+	return database("user").returning(["id", "email", "password"]).insert({
+		email,
+		password
 	});
 };
 
