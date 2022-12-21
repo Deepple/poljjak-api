@@ -4,14 +4,19 @@ const getUsers = () => {
 	return database("user");
 };
 
-const createUser = ({email, password}) => {
-	return database("user").returning(["id", "email", "password"]).insert({
+const getUserByEmail = (email) => {
+	return database("user").select("email", "password").where("email", email);
+};
+
+const createUser = (email, password) => {
+	return database("user").returning(["id", "email"]).insert({
 		email,
-		password
+		password,
 	});
 };
 
 export const userService = {
 	getUsers,
 	createUser,
+	getUserByEmail,
 };

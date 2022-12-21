@@ -6,14 +6,21 @@ const getUsers = async (req, res) => {
 	res.send(users);
 };
 
+const getUserByEmail = async (req, res) => {
+	const {email} = req.body;
+	const user = await userService.getUserByEmail(email);
+	res.send(user)
+};
+
 const createUser = async (req, res) => {
-	const email = req.body.email;
-	const hashedPassword = await hashPassword(req.body.password);
-	const userInfo = await userService.createUser({email, hashedPassword});
+	const {email, password} = req.body;
+	const hashedPassword = await hashPassword(password);
+	const userInfo = await userService.createUser(email, hashedPassword);
 	res.send(userInfo);
 };
 
 export const userController = {
 	getUsers,
 	createUser,
+	getUserByEmail,
 };
