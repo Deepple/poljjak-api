@@ -1,8 +1,8 @@
 {
-  "name": "express-test",
+  "name": "express-knex-boilerplate",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "type": "module",
   "dependencies": {
     "accepts": "^1.3.8",
